@@ -1,6 +1,3 @@
-Aquí tienes una propuesta de **`README.md`** lista para copiar y pegar en tu repositorio de GitHub. 
-
-Este README está diseñado para verse profesional, explicando la arquitectura, la tecnología y cómo arrancar el proyecto paso a paso.
 
 ```markdown
 # 🍺 Expendio de Bebidas - Sistema de Gestión
@@ -89,3 +86,4 @@ ExpendioFS/
 3. El server.js recibe la solicitud HTTP y la dirige al enrutador adecuado (routes).
 4. El enrutador invoca a su respectivo `Controlador`, quien llama al `Modelo`.
 5. El Modelo ejecuta la consulta directamente en el contenedor de **MySQL** y retorna los datos al Controlador para responder con un objeto `JSON` al Frontend.
+```
