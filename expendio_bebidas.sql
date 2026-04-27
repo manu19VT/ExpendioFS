@@ -34,7 +34,7 @@ CREATE TABLE empleados (
     salario DECIMAL(10,2) NOT NULL,
     turno VARCHAR(30) NOT NULL,
     estatus VARCHAR(20) NOT NULL,
-    FOREIGN KEY (sucursal_id) REFERENCES sucursales(id)
+    FOREIGN KEY (sucursal_id) REFERENCES sucursales(id) ON DELETE CASCADE
 );
 
 
@@ -85,7 +85,7 @@ CREATE TABLE productos (
     stock_minimo INT NOT NULL,
     fecha_caducidad DATE NULL,
     activo TINYINT(1) NOT NULL,
-    FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
+    FOREIGN KEY (proveedor_id) REFERENCES proveedores(id) ON DELETE CASCADE
 );
 
 
@@ -102,9 +102,9 @@ CREATE TABLE ventas (
     impuesto DECIMAL(10,2) NOT NULL,
     total DECIMAL(10,2) NOT NULL,
     estatus VARCHAR(20) NOT NULL,
-    FOREIGN KEY (sucursal_id) REFERENCES sucursales(id),
-    FOREIGN KEY (empleado_id) REFERENCES empleados(id),
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+    FOREIGN KEY (sucursal_id) REFERENCES sucursales(id) ON DELETE CASCADE,
+    FOREIGN KEY (empleado_id) REFERENCES empleados(id) ON DELETE CASCADE,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
 );
 
 
@@ -119,8 +119,8 @@ CREATE TABLE detalle_venta (
     subtotal DECIMAL(10,2) NOT NULL,
     observaciones VARCHAR(150) NOT NULL,
     entregado TINYINT(1) NOT NULL,
-    FOREIGN KEY (venta_id) REFERENCES ventas(id),
-    FOREIGN KEY (producto_id) REFERENCES productos(id)
+    FOREIGN KEY (venta_id) REFERENCES ventas(id) ON DELETE CASCADE,
+    FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE
 );
 
 INSERT INTO sucursales (id, nombre, telefono, email, calle, numero, colonia, ciudad, estado, codigo_postal, fecha_apertura, activa) VALUES
